@@ -12,5 +12,23 @@ body {
   margin: auto;
   width: 60%;
   border: 3px solid green;
-  padding: 100px;
+  padding: 30px 100px 100px 100px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#container div{
+  width: 30%;
+  margin: 5px;
+}
+
+h1 {
+  margin: 15px;
+  color: rgba(233, 0, 39)
+}
+
+#searchInput {
+  width: 20%;
+  margin: 20px;
+  border: 2px solid black;
 }

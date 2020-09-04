@@ -8,11 +8,11 @@ function setup() {
 
 function makePageForEpisodes(episodeList) {
   const container = document.getElementById("container");
-  let searchResult = document.getElementById("searchResult");
+  
   let allEpisodes;
   // creates a div for every episode and adds the info or details //  
   episodeList.forEach((episode) => {
-    
+    let searchResult = document.getElementById("searchResult");
     container.innerHTML += `<div>
     <h2>${episode.name} - S${zeroPadded(episode.season)} 
     E${zeroPadded(episode.number)} </h2>
@@ -34,21 +34,34 @@ document.addEventListener("keyup", () => {
   let episodesAll = document.querySelectorAll("#container div");
   let searchInput = document.getElementById("searchInput").value;
 
-  console.log(searchInput);
-  episodesAll.forEach((episode) => {
+  // console.log(searchInput);
+  // episodesAll.forEach((episode) => {
   
-    if (episode.innerHTML.toLowerCase().includes(searchInput.toLowerCase()))
-    // episode.name.toUpperCase().includes(searchInput.toUpperCase())) 
-    // || episode.summary.toUpperCase().includes(searchInput.toUpperCase())) 
+  //   if (episode.innerHTML.toLowerCase().includes(searchInput.toLowerCase()))
+  //   // episode.name.toUpperCase().includes(searchInput.toUpperCase())) 
+  //   // || episode.summary.toUpperCase().includes(searchInput.toUpperCase())) 
+  //   {
+  //     episode.style.display = "";
+  //     console.log(episode.style.display = "");
+  //   } else {
+  //     episode.style.display = "none";
+  //   }; 
+
+  // })
+
+  filteredList = allEpisodes.filter((episode) => {
+    if (episode.name.toUpperCase().includes(searchInput.toUpperCase())
+    || episode.summary.toUpperCase().includes(searchInput.toUpperCase()))
+    // if (episode.innerHTML.toLowerCase().includes(searchInput.toLowerCase()))
     {
       episode.style.display = "";
-      console.log(episode.style.display = "");
-    } else {
+    } else 
+    {
       episode.style.display = "none";
-    }; 
-    
-  })
+    } 
+  makePageForEpisodes(filteredList);
    
+});
 });
 // console.log(episodesAdd);
 

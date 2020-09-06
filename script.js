@@ -1,18 +1,28 @@
 // You can edit ALL of the code here
 
+let allEpisodes;
 function setup() {
-  const allEpisodes = getAllEpisodes();
+  allEpisodes = getAllEpisodes();
   makePageForEpisodes(allEpisodes); 
-  console.log(allEpisodes)
 };
 
+let dropDown = document.getElementById("listEpisodes");
+// Level 100: function that displays episodes on webpage after load action //
 function makePageForEpisodes(episodeList) {
   const container = document.getElementById("container");
-  
-  let allEpisodes;
-  // creates a div for every episode and adds the info or details //  
+  const option = document.createElement("option");
+option.value = "";
+option.innerHTML = "Show All Episodes";
+dropDown.appendChild(option);
+
+  // creates a div for every episode and adds the info or details - [for alternative solution]
   episodeList.forEach((episode) => {
-    let searchResult = document.getElementById("searchResult");
+    let option = document.createElement("option");
+    option.value = episode.name;
+    option.innerHTML = `S${zeroPadded(episode.season)} 
+  E${zeroPadded(episode.number)} - ${episode.name}`;
+    dropDown.appendChild(option);
+    // let searchResult = document.getElementById("searchResult");  -[for alternative solution]
     container.innerHTML += `<div>
     <h2>${episode.name} - S${zeroPadded(episode.season)} 
     E${zeroPadded(episode.number)} </h2>
@@ -20,7 +30,7 @@ function makePageForEpisodes(episodeList) {
     ${episode.summary}
     </div>`;
   })
-  searchResult.innerHTML = `${episodeList.length} of ${allEpisodes.length} episodes selected`;
+  // searchResult.innerHTML = `${episodeList.length} of ${allEpisodes.length} episodes selected`;
 };
 
 // function adds "0" to number to give it a double digit // 
@@ -28,41 +38,77 @@ function zeroPadded(episodeCode) {
   return episodeCode.toString().padStart(2, 0);
 };
 
-// let episodesAdd;
-  
+// Level 200: Search Input with eventListener for input search and count of episodes //  
 document.addEventListener("keyup", () => {
   let episodesAll = document.querySelectorAll("#container div");
   let searchInput = document.getElementById("searchInput").value;
-
-  // console.log(searchInput);
-  // episodesAll.forEach((episode) => {
-  
-  //   if (episode.innerHTML.toLowerCase().includes(searchInput.toLowerCase()))
-  //   // episode.name.toUpperCase().includes(searchInput.toUpperCase())) 
-  //   // || episode.summary.toUpperCase().includes(searchInput.toUpperCase())) 
-  //   {
-  //     episode.style.display = "";
-  //     console.log(episode.style.display = "");
-  //   } else {
-  //     episode.style.display = "none";
-  //   }; 
-
-  // })
-
-  filteredList = allEpisodes.filter((episode) => {
-    if (episode.name.toUpperCase().includes(searchInput.toUpperCase())
-    || episode.summary.toUpperCase().includes(searchInput.toUpperCase()))
-    // if (episode.innerHTML.toLowerCase().includes(searchInput.toLowerCase()))
-    {
+  let searchResult = document.getElementById("searchResult");
+  let episodeCount = 0;
+  console.log(searchInput);
+  episodesAll.forEach((episode) => {
+   
+    if (episode.innerHTML.toLowerCase().includes(searchInput.toLowerCase())) {
       episode.style.display = "";
+      episodeCount++;
     } else 
     {
       episode.style.display = "none";
-    } 
-  makePageForEpisodes(filteredList);
-   
-});
-});
-// console.log(episodesAdd);
+     
+    }; 
+    searchResult.innerHTML = `${episodeCount} of ${episodesAll.length} episodes selected`;
+  })
+})
+  
 
-  window.onload = setup;
+dropDown.onchange = (episode) => {
+  
+  console.log(episode.target.value);
+  let episodesAll = document.querySelectorAll("#container div");
+  let searchInput = episode.target.value;
+  let searchResult = document.getElementById("searchResult");
+  let episodeCount = 0;
+  console.log(searchInput);
+  episodesAll.forEach((episode) => {
+    let episodeName = episode.querySelector("h2");
+    console.log(episodeName.innerHTML.toLowerCase().includes(searchInput.toLowerCase()));
+    if (episodeName.innerHTML.toLowerCase().includes(searchInput.toLowerCase())) {
+      episode.style.display = "";
+      episodeCount++;
+    } else {
+      episode.style.display = "none";
+
+    };
+    searchResult.innerHTML = `${episodeCount} of ${episodesAll.length} episodes selected`;
+  })
+  // dropDown.innerHTML += `<option>
+  //   <h> S${zeroPadded(episode.season)} 
+  //   E${zeroPadded(episode.number)} - ${episode.name} </h2>
+  //   </option>`
+};
+
+    window.onload = setup;
+
+  // alternative solution tp Level 200//
+//   document.addEventListener("keyup", () => {
+    
+//     let searchInput = document.getElementById("searchInput").value;
+    
+//     let filteredList = allEpisodes.filter((episode) => {
+//       return (episode.name.toUpperCase().includes(searchInput.toUpperCase())
+//     || episode.summary.toUpperCase().includes(searchInput.toUpperCase()))
+//           
+//     });
+//     makePageForEpisodes(filteredList);
+//   });
+// // console.log(episodesAdd);
+
+// Level 300: Episode Selector as DropDown //
+
+
+
+// listEpisode.innerHTML = 
+
+
+  
+
+  

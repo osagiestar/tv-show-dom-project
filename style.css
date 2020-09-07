@@ -35,7 +35,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-#container div{
+#container div {
   width: 32%;
   margin: 5px;
   background-size: auto;
@@ -61,3 +61,6 @@ p {
   padding: 15px;
 }
 
+#footer p {
+  text-align: center;
+}

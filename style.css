@@ -35,7 +35,6 @@ h1 {
   flex-wrap: wrap;
 }
 
-
 #container div{
   width: 32%;
   margin: 5px;
@@ -52,15 +51,13 @@ h3 {
   flex-wrap: wrap;
   text-align: center;
   box-sizing: border-box;
-  /* border: solid #5B6DCD 1px; */
   margin: 15px;
-  /* padding-bottom: 20px; */
 }
 
 p {
   text-justify: auto;
-  text-align: center;
+  text-align: justify;
   margin: 5px;
-  /* border: 1px solid rgb(6, 7, 6); */
+  padding: 15px;
 }
 

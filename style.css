@@ -6,22 +6,6 @@ body {
   text-align: center;
 }
 
-#container {
-  text-justify: center;
-  text-align: center;
-  margin: auto;
-  width: 70%;
-  border: 3px solid green;
-  padding: 30px 100px 100px 100px;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#container div{
-  width: 30%;
-  margin: 10px;
-}
-
 h1 {
   margin: 15px;
   color: rgba(233, 0, 39)
@@ -29,6 +13,54 @@ h1 {
 
 #searchInput {
   width: 20%;
+  height: 20px;
   margin: 20px;
   border: 2px solid black;
 }
+
+#listEpisodes {
+  width: 20%;
+  height: 25px;
+  border: 2px solid black;
+}
+
+#container {
+  text-justify: center;
+  text-align: center;
+  margin: auto;
+  width: 80%;
+  border: 3px solid green;
+  padding: 30px 10px 30px 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+#container div{
+  width: 32%;
+  margin: 5px;
+  background-size: auto;
+  background-color: rgb(235, 230, 230);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h3 {
+  color: rgb(93, 93, 194);
+  display: inline-block;
+  display: inline;
+  flex-wrap: wrap;
+  text-align: center;
+  box-sizing: border-box;
+  /* border: solid #5B6DCD 1px; */
+  margin: 15px;
+  /* padding-bottom: 20px; */
+}
+
+p {
+  text-justify: auto;
+  text-align: center;
+  margin: 5px;
+  /* border: 1px solid rgb(6, 7, 6); */
+}
+

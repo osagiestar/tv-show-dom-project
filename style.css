@@ -11,17 +11,16 @@ h1 {
   color: rgba(233, 0, 39)
 }
 
-#searchInput {
+
+#show_dropdown, #searchInput, #listEpisodes {
   width: 20%;
-  height: 20px;
+  height: 30px;
   margin: 20px;
   border: 2px solid black;
 }
 
-#listEpisodes {
-  width: 20%;
-  height: 25px;
-  border: 2px solid black;
+#searchInput {
+  height: 24px;
 }
 
 #container {

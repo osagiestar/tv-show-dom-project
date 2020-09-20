@@ -11,22 +11,31 @@
   <body>
     <div id="root"></div>
 
-    <h1>Game of Thrones</h1>
+    <h1> TV Shows Project </h1>
 
-    <!-- Search Input -->
     <div>
-    <input type="text" id="searchInput" placeholder="Search for Episodes..." title="input search"> 
-    
-    <!-- DropDown Option -->
-    <label id="selector">Choose an Episode:
-      <select id="listEpisodes" name="listed-episodes">
-        <option value="text">Select One Episode…</option>
-        
-      </select>
-    </label>
+      <!--Show DropDown Option -->
+      <label id="selector">
+        <select id="show_dropdown" name="listed-shows">
+          <option value="text">Select One Show…</option>
+      
+        </select>
+      </label>
 
-    <!-- Search Result Display -->
-    <div id= "searchResult"></div>
+      <!-- Search Input -->
+     
+      <input type="text" id="searchInput" placeholder="Search for Episodes..." title="input search">
+
+        <!-- DropDown Option -->
+      <label id="selector">Choose an Episode:
+        <select id="listEpisodes" name="listed-episodes">
+          <option value="text">Select One Episode…</option>
+        
+        </select>
+      </label>
+
+      <!-- Search Result Display -->
+      <div id= "searchResult"></div>
     </div>
 
     <div id = "container">   
@@ -36,12 +45,16 @@
     <div id= "footer"> 
       <p>The data for this project were taken from <a href= "https://www.tvmaze.com/api#licensing">TVMaze.com</a> </p>
     </div>
-    
-    <!-- Loads the provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+      
+      <!-- Loads the provided function called getAllEpisodes() which returns all episodes -->
+      <script src="episodes.js"></script>
 
-    <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
+      <!-- Loads the provided function called getAllShows() which returns all shows -->
+      <script src="shows.js"></script>
+
+      <!-- Loads YOUR javascript code -->
+      <script src="script.js"></script>
   </body>
 </html>
+
 

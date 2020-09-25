@@ -1,9 +1,10 @@
 #root {
-  color: red;
+  /* color: red; */
 }
 
 body {
   text-align: center;
+  background-color: rgb(224, 207, 221);
 }
 
 h1 {
@@ -62,4 +63,5 @@ p {
 
 #footer p {
   text-align: center;
+  font-size: 14px;
 }

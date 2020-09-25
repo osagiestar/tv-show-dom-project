@@ -7,48 +7,65 @@ let searchInput = document.getElementById("searchInput");
 let searchResult = document.getElementById("searchResult");
 showDropDown = document.getElementById("show_dropdown");
 
-
-
-// sorts the show dropDown in alphabetical order
+// function call to load web page
 function setup() {
+  // sorts the show dropDown in alphabetical order
   let allShows = getAllShows().sort((a, b) => {
-    if(a.name.toLowerCase() > b.name.toLowerCase()) {
+    if (a.name.toLowerCase() > b.name.toLowerCase()) {
       return 1;
-    }
-    else if(b.name.toLowerCase() > a.name.toLowerCase()) {
+    } else if (b.name.toLowerCase() > a.name.toLowerCase()) {
       return -1;
-    }
-    else
-    {
+    } else {
       return 0;
     }
   });
-  
-  //creates show DropDown Options
+
+  // creates show DropDown Options
   createShowList = allShows.forEach((show) => {
     showDropDown.innerHTML += `
     <option  value= "${show.id}">
     ${show.name}
     </option>
    `;
-  //  console.log(`${show.name} - ${show.id}`);
   });
-  episodeSet(allShows[0].id);
-  // allEpisodes = getAllEpisodes();
-  // makePageForEpisodes(allEpisodes);
+  //  episodeSet(allShows[0].id); // function call to load episodes //
+
+  makePageForShow(allShows); // function call to load all shows //
 }
 
+// function that creates div for shows and displays details
+function makePageForShow(allShows) {
+  allShows.forEach((show) => { 
+  let showEl = document.createElement("div");
+  container.appendChild(showEl);
+ 
+  show.image ? (showEl.innerHTML += `
+    <h3>${show.name}</h3>
+    <img src= "${show.image.medium}" alt ""> 
+    ${show.summary ? show.summary : ""}
+    `)
+    : (showEl.innerHTML += `
+    <h3>${show.name}</h3>
+    ${show.summary ? show.summary : ""}`);
+    console.log(showEl);   
+})
+
+}
+
+// function that fetches API and displays episodes 
 function episodeSet(selectedShow) {
    console.log(selectedShow);
 
-  fetch(`https://api.tvmaze.com/shows/${selectedShow}/episodes`)
+    // API Fetch for show episodes //
+    fetch(`https://api.tvmaze.com/shows/${selectedShow}/episodes`)
     .then((response) => response.json())
     .then((data) => {
       makePageForEpisodes(data);
+      // console.log(data[0]);
     })
     .catch((error) => console.log(error));
 }
-
+// eventListener for the show Dropdown
 showDropDown.addEventListener("change", (event) =>  episodeSet(event.target.value));
 
 // Level 100: function that displays episodes on webpage for GOT show//
@@ -91,7 +108,6 @@ function zeroPadded(episodeCode) {
 
 // Level 200: Search Input with eventListener for Input Search and count of Episodes //
 searchInput.addEventListener("input", (event) => {
-
   searchInput = event.target.value;
   let episodesAll = document.querySelectorAll("#container div");
 
@@ -106,7 +122,8 @@ searchInput.addEventListener("input", (event) => {
        episode.style.display = "none";
      }
   });
-  searchResult.innerHTML = `${episodeCount} of ${episodesAll.length} episodes available`;
+  // searchResult.innerHTML = `${episodeCount} of ${episodesAll.length} episodes available`;
+    searchResult.innerHTML = `${episodeCount} of ${episodesAll.length} shows available`;
 });
 
 // Level 300: EventListener for the DropDown selector
@@ -130,20 +147,5 @@ dropDown.addEventListener("change", (event) => {
   searchResult.innerHTML = `${episodeCount} of ${episodesAll.length} episodes selected`;
 });
 
+// loads and displays webpage 
 window.onload = setup;
-
-
-// Initial code for fetch and use of eventListener
-// showDropDown.addEventListener("change", (show) => {
-//   searchResult.style.display = "none";
-//   selectedShow = show.target.value;
-//   console.log(selectedShow);
-
-//   fetch(`https://api.tvmaze.com/shows/${selectedShow}/episodes`)
-//     .then((response) => response.json())
-//     .then((episodes) => {
-//       console.log(123);
-//      })
-// });
-// 
-    

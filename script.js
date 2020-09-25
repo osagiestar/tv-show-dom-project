@@ -1,5 +1,6 @@
 // You can edit ALL of the code here
 
+// selectors and global variables
 let dropDown = document.getElementById("listEpisodes");
 const container = document.getElementById("container");
 const option = document.createElement("option");
@@ -49,7 +50,6 @@ function makePageForShow(allShows) {
     ${show.summary ? show.summary : ""}`);
     console.log(showEl);   
 })
-
 }
 
 // function that fetches API and displays episodes 

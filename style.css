@@ -1,6 +1,6 @@
-/* #root {
-  color: red;
-} */
+#root {
+  background-color: rgb(224, 207, 221);
+}
 
 body {
   text-align: center;
@@ -9,10 +9,12 @@ body {
 
 h1 {
   margin: 15px;
-  color: rgba(233, 0, 39)
+  color: rgba(233, 0, 39);
 }
 
-#show_dropdown, #searchInput, #listEpisodes {
+#show_dropdown,
+#searchInput,
+#listEpisodes {
   width: 20%;
   height: 30px;
   margin: 20px;
@@ -27,13 +29,38 @@ h1 {
   text-justify: center;
   text-align: center;
   margin: auto;
-  width: 80%;
-  border: 3px solid green;
+  width: 88%;
   padding: 30px 10px 30px 20px;
   display: flex;
   flex-wrap: wrap;
 }
 
+#root {
+  text-justify: center;
+  text-align: center;
+  margin: auto;
+  width: 88%;
+  padding: 30px 10px 30px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-elm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.show-elm h3 {
+  width: 100%;
+}
+
+.show-info {
+  display: flex;
+  width: 100%;
+}
+
+/*Div for the Episode display */
 #container div {
   width: 32%;
   margin: 5px;
@@ -43,6 +70,17 @@ h1 {
   padding-bottom: 10px;
 }
 
+#more-details {
+  color: green;
+  width: auto;
+  height: 30%;
+  padding: 15px;
+  margin: auto;
+  border: 2px solid rgb(214, 156, 165);
+  box-sizing: border-box;
+  box-shadow: 3px 3px 3px rgb(100, 91, 91);
+}
+
 h3 {
   color: rgb(93, 93, 194);
   display: inline-block;
@@ -50,7 +88,7 @@ h3 {
   flex-wrap: wrap;
   text-align: center;
   box-sizing: border-box;
-  margin: 15px;
+  margin: 5px;
 }
 
 p {
